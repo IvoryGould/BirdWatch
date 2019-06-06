@@ -44,6 +44,7 @@ public class moveToPoint : MonoBehaviour
 
     IEnumerator NextPoint()
     {
+        // Send the birds to a different point
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(3, 8));
@@ -55,6 +56,7 @@ public class moveToPoint : MonoBehaviour
 
     IEnumerator SpawnPoint()
     {
+        // Return the birds home
         while (true)
         {
             yield return new WaitForSeconds(12f);
