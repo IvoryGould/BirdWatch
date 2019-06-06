@@ -25,6 +25,7 @@ public class moveToPoint : MonoBehaviour
     }
     private void Update()
     {
+        // Send the birds to a different point
         if (birdPoints <= 10)
         {
             transform.position = Vector3.MoveTowards(transform.position, point, step);
@@ -33,7 +34,7 @@ public class moveToPoint : MonoBehaviour
         }
         else
         {
-           
+
             transform.position = Vector3.MoveTowards(transform.position, homePoint, step);
             Vector3 newHDir = Vector3.RotateTowards(transform.forward, homePoint - transform.position, step, 0.0f);
             transform.rotation = Quaternion.LookRotation(newHDir);
