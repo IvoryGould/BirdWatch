@@ -13,18 +13,22 @@ public class GameManager : MonoBehaviour
     
     public static bool _isPlaying;
 
+    UIController UIController;
+    CameraController CameraController;
+
     void Awake()
     {
         _isPlaying = false;
-    }
-    
-    void Update()
-    {
-        
+
+        UIController = GameObject.Find("MENUS Controller").GetComponent<UIController>();
+        CameraController = GameObject.Find("CAMERA Controller").GetComponent<CameraController>();
+
     }
 
     public void PlayGame()
     {
-        Debug.Log("FAKESTART GAME");
+        //Debug.Log("FAKESTART GAME");
+        UIController.CvsMainMenu.enabled = false;
+        CameraController.MovePlayerToStage(_wpStage);
     }
 }

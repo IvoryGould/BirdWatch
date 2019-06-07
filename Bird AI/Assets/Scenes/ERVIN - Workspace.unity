@@ -2431,7 +2431,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5245,8 +5245,8 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 0
-  m_wordSpacing: 0
+  m_characterSpacing: 8
+  m_wordSpacing: -2
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -6981,8 +6981,8 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 6
-  m_wordSpacing: 0
+  m_characterSpacing: 12
+  m_wordSpacing: -12
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
@@ -10107,7 +10107,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 6
+  m_characterSpacing: 12
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -12286,7 +12286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2524a9a5f565048b5625bdbb441805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
+  Camera: {fileID: 569848726}
 --- !u!1001 &738032069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15584,7 +15584,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 6
+  m_characterSpacing: 20
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -16534,8 +16534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8213ba58a34144543934928f0e284d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wpHome: {fileID: 0}
-  _wpStage: {fileID: 0}
+  _wpHome: {fileID: 1136237631}
+  _wpStage: {fileID: 387177769}
 --- !u!1001 &1240498455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16741,12 +16741,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240406416}
-        m_MethodName: 
+      - m_Target: {fileID: 1240406418}
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -24352,7 +24352,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 0
+  m_characterSpacing: 10
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -25140,15 +25140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f240bfb795d3ae42b62695543cfec8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CvsMainMenu: {fileID: 1544026641}
   MenuMain: {fileID: 734731881}
   MenuOptions: {fileID: 393992803}
   MenuCredits: {fileID: 816920626}
   MenuConfirmExit: {fileID: 118334064}
-  EventController:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1819493232
 GameObject:
   m_ObjectHideFlags: 0
@@ -25503,7 +25499,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 0
+  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -25826,7 +25822,7 @@ MonoBehaviour:
   m_fontStyle: 0
   m_textAlignment: 513
   m_isAlignmentEnumConverted: 1
-  m_characterSpacing: 6
+  m_characterSpacing: 12
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

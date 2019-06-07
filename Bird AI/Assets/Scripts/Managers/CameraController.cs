@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    private Camera _camera;
+     
+    public GameObject Camera;
     //private GameObject _wpMenu, _wpStage;
 
     public void MovePlayerToStage(GameObject _wpStage)
     {
-        _camera.transform.position = _wpStage.transform.position;
+        Camera.transform.rotation = _wpStage.transform.rotation;
     }
 
     public void MovePlayerToMenu(GameObject _wpHome)
     {
-        _camera.transform.position = _wpHome.transform.position;
+        Camera.transform.position = _wpHome.transform.position;
     }
 }

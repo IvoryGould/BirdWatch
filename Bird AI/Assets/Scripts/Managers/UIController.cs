@@ -7,21 +7,26 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
+    [Header("Canvas Controllers")]
+    public Canvas CvsMainMenu;
+    //public Canvas CvsPause;
+
     [Header("Menu Slots")]
     public GameObject MenuMain;
     public GameObject MenuOptions;
     public GameObject MenuCredits;
     public GameObject MenuConfirmExit;
 
-    public UnityEvent EventController;
+    //public UnityEvent EventController;
 
-    private bool _options;
+    private bool _options = false;
 
 
     void Awake()
     {
-        EventController.Invoke();
+        //EventController.Invoke();
         Switch_MainMenu();
+        //CvsPause.enabled = false;
     }
 
 
