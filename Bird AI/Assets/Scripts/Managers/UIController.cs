@@ -13,58 +13,23 @@ public class UIController : MonoBehaviour
     public GameObject MenuCredits;
     public GameObject MenuConfirmExit;
 
-    /*
-    [Header("Options Text Slots")]
-    public GameObject VolMaster;
-    public GameObject VolMusic;
-    public GameObject VolSound;
-
-    
-    [Header("Options Sliders")]
-    public Slider SldVolMaster;
-    public Slider SldVolMusic;
-    public Slider SldVolSound;
-
-    private Text SldVolMaster_Val, SldVolMusic_Val, SldVolSound_Val;
-    private TextMeshPro _textVolMaster, _textVolMusic, _textVolSound;
-    */
+    public UnityEvent EventController;
 
     private bool _options;
 
-    public UnityEvent EventController;
-    
 
     void Awake()
     {
         EventController.Invoke();
         Switch_MainMenu();
-        //TextHook();
     }
 
 
     void Update()
     {
-        if (_options == true)
-        {
-            SliderFeedback();
-        }
+
     }
 
-    /*
-    private void TextHook()                  // Workaround for Text mesh pro with slider feedback.
-    {
-        _textVolMaster = VolMaster.GetComponent<TextMeshPro>();
-        _textVolMusic = VolMusic.GetComponent<TextMeshPro>();
-        _textVolSound = VolSound.GetComponent<TextMeshPro>();
-    }
-    */
-
-    public void SliderFeedback()
-    {
-        _textVolMaster.text = SldVolMaster.value.ToString();
-        _textVolMusic.text = SldVolMusic.value.ToString();
-        _textVolSound.text = SldVolSound.value.ToString();
-    }
 
     public void Switch_MainMenu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
     {
