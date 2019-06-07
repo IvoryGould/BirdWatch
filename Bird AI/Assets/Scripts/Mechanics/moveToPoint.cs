@@ -28,19 +28,24 @@ public class moveToPoint : MonoBehaviour
         // Send the birds to a different point
         if (birdPoints <= 10)
         {
+            StopCoroutine(SpawnPoint());
             transform.position = Vector3.MoveTowards(transform.position, point, step);
             Vector3 newDir = Vector3.RotateTowards(transform.forward, point - transform.position, step, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDir);
         }
-        else
+        else if (birdPoints > 10)
         {
-
+            StopCoroutine(NextPoint());
             transform.position = Vector3.MoveTowards(transform.position, homePoint, step);
             Vector3 newHDir = Vector3.RotateTowards(transform.forward, homePoint - transform.position, step, 0.0f);
             transform.rotation = Quaternion.LookRotation(newHDir);
             StartCoroutine(SpawnPoint());
         }
+
+
     }
+
+
 
 
     IEnumerator NextPoint()
@@ -58,13 +63,13 @@ public class moveToPoint : MonoBehaviour
     IEnumerator SpawnPoint()
     {
         // Return the birds home
-        while (true)
-        {
+        //while (true)
+        //{
             yield return new WaitForSeconds(12f);
             int homeRand = Random.Range(0, homeTarget.Length);
             homePoint = homeTarget[homeRand].position;
             birdPoints = 0;
-        }
+        //}
     }
 }
 

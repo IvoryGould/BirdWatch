@@ -9,6 +9,9 @@ public class rareBird : MonoBehaviour
     [SerializeField]
     private int birdPoints;
 
+    [SerializeField]
+    private bool tempState;
+
     public Transform[] target;
     public Transform[] homeTarget;
     public float speed;
@@ -17,24 +20,27 @@ public class rareBird : MonoBehaviour
 
     private void Start()
     {
+        tempState = true;
         step = speed * Time.deltaTime;
         point = this.transform.position;
         homePoint = this.transform.position;
         StartCoroutine(NextPoint());
         birdPoints = 0;
+
     }
     private void Update()
     {
         // Send the birds to a different point
         if (birdPoints <= 10)
         {
+            tempState = true;
             transform.position = Vector3.MoveTowards(transform.position, point, step);
             Vector3 newDir = Vector3.RotateTowards(transform.forward, point - transform.position, step, 0.0f);
             transform.rotation = Quaternion.LookRotation(newDir);
         }
         else
         {
-
+            tempState = false;
             transform.position = Vector3.MoveTowards(transform.position, homePoint, step);
             Vector3 newHDir = Vector3.RotateTowards(transform.forward, homePoint - transform.position, step, 0.0f);
             transform.rotation = Quaternion.LookRotation(newHDir);
@@ -46,7 +52,7 @@ public class rareBird : MonoBehaviour
     IEnumerator NextPoint()
     {
         // Send the birds to a different point
-        while (true)
+        while (tempState == true)
         {
             yield return new WaitForSeconds(Random.Range(3, 8));
             int rand = Random.Range(0, target.Length);
@@ -58,7 +64,7 @@ public class rareBird : MonoBehaviour
     IEnumerator SpawnPoint()
     {
         // Return the birds home
-        while (true)
+        while (tempState == false)
         {
             yield return new WaitForSeconds(12f);
             int homeRand = Random.Range(0, homeTarget.Length);
