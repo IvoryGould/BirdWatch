@@ -7,11 +7,13 @@ public class lookareatest : MonoBehaviour
 
     public Camera cam;
     public Material redMat;
+    public Canvas zoomCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = GetComponent<Camera>();
+        zoomCanvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -35,5 +37,18 @@ public class lookareatest : MonoBehaviour
 
                 }
             }
+
+        if (OVRInput.Get(OVRInput.Button.One))
+        {
+
+            zoomCanvas.enabled = true;
+
+        }
+        else {
+
+            zoomCanvas.enabled = false;
+
+        }
+
     }
 }
