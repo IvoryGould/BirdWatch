@@ -31,17 +31,8 @@ public class Screenshot : MonoBehaviour
 
     private Texture2D texture = null;
 
-    // file format of the screenshot
-    public string ScreenshotName(int width, int height, int count)
-    {
-        return string.Format("{0}/Screenshot_{1}x{2}_{3}.png", Application.persistentDataPath, 
-            width, height, count);
-    }
-
     private void Start()
     {
-        filename = ScreenshotName(screenWidth, screenHeight, screenshotCount);
-
         cam =  GetComponent<Camera>();
         rendOne = rendOne.GetComponent<Renderer>();
         rendTwo = rendTwo.GetComponent<Renderer>();
@@ -89,11 +80,6 @@ public class Screenshot : MonoBehaviour
 
         if (screenshotTaken && onPolaroid)
         {
-            //// converts saved screenshot into a texture
-            //byte[] file = File.ReadAllBytes(filename);
-            //texture = new Texture2D(4, 4);
-            //texture.LoadImage(file);
-
             // displays screenshot onto a polaroid
             polaroid.material.SetTexture("_MainTex", texture);
             onPolaroid = false;
@@ -105,7 +91,7 @@ public class Screenshot : MonoBehaviour
         yield return new WaitForEndOfFrame();
         texture = ScreenCapture.CaptureScreenshotAsTexture();
         Debug.Log(string.Format("Took screenshot to: {0}", filename));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(screenshotDelay);
 
         screenshotTaken = true;
         onPolaroid = true;
