@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class lookareatest : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class lookareatest : MonoBehaviour
     public Camera cam;
     public Material redMat;
     public Canvas zoomCanvas;
+    public Image zoomOverlay;
 
     // Start is called before the first frame update
     void Start()
@@ -26,17 +28,27 @@ public class lookareatest : MonoBehaviour
 
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit) && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-            if (hit.transform.tag == "bird") {
+        {
+            zoomOverlay.enabled = false;
+            if (hit.transform.tag == "bird")
+            {
                 if (hit.collider.gameObject.GetComponent<MeshRenderer>().material.color != Color.cyan)
                 {
                     hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = Color.cyan;
                 }
-                else if (hit.collider.gameObject.GetComponent<MeshRenderer>().material.color == Color.cyan) {
+                else if (hit.collider.gameObject.GetComponent<MeshRenderer>().material.color == Color.cyan)
+                {
 
                     hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
 
                 }
             }
+        }
+        else {
+
+            zoomOverlay.enabled = true;
+
+        }
 
         if (OVRInput.Get(OVRInput.Button.One))
         {

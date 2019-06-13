@@ -63,7 +63,7 @@ public class specialBird : MonoBehaviour
         
         
         
-        yield return new WaitForSeconds(Random.Range(12, 40));
+        yield return new WaitForSeconds(Random.Range(2, 4));
         specialSleep.sBWakeUp = true;
         birdPoints = 0;
     }
