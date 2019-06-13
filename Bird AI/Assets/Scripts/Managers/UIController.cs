@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour
     public GameObject PauseOptions;
     public GameObject PauseConfirmExit;
 
-    private bool _options = false;
+    public bool _options = false;      // safety for slider functionality
 
     // HERE ARE THE FUNCTIONS FOR THE MAIN MENU
 
@@ -40,6 +40,8 @@ public class UIController : MonoBehaviour
         MenuCredits.SetActive(false);
         MenuConfirmExit.SetActive(false);
         _options = false;
+
+        SelectionReset();
     }
 
     public void Main_Options()        // Switch to Options, Closes Main Menu Panel.
@@ -68,6 +70,8 @@ public class UIController : MonoBehaviour
         PauseMain.SetActive(true);
         PauseOptions.SetActive(false);
         PauseConfirmExit.SetActive(false);
+
+        SelectionReset();
     }
 
     public void Pause_Resume()
@@ -82,6 +86,7 @@ public class UIController : MonoBehaviour
     {
         PauseMain.SetActive(false);
         PauseOptions.SetActive(true);
+        _options = true;
     }
 
     public void Pause_ConfirmExit()
@@ -94,5 +99,13 @@ public class UIController : MonoBehaviour
     {
         CvsPauseMenu.enabled = false;
         CvsMainMenu.enabled = true;
+    }
+
+    // Quality of Life - unselect last option
+
+    public void SelectionReset()
+    {
+        GameObject myEventSystem = GameObject.Find("EventSystem");
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
 }

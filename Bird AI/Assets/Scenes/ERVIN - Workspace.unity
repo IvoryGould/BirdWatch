@@ -1055,8 +1055,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240406418}
-        m_MethodName: EndSession
+      - m_Target: {fileID: 1240406419}
+        m_MethodName: Pause_ConfirmExit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5474,8 +5474,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Switch_MainMenu
+      - m_Target: {fileID: 1240406419}
+        m_MethodName: Pause_Main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6167,8 +6167,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 677431479}
+  m_Children: []
   m_Father: {fileID: 1186701160}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6251,8 +6250,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Switch_MainMenu
+      - m_Target: {fileID: 1240406419}
+        m_MethodName: Pause_Main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13746,20 +13745,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677431478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 1}
+  m_LocalRotation: {x: -0, y: -0.38268322, z: -0, w: 0.9238797}
+  m_LocalPosition: {x: 0, y: 0, z: 0.35355353}
+  m_LocalScale: {x: 0.0009999999, y: 0.001, z: 1}
   m_Children:
   - {fileID: 1029430289}
   - {fileID: 87444218}
   - {fileID: 1024068900}
   - {fileID: 1078742188}
-  m_Father: {fileID: 387177770}
-  m_RootOrder: 0
+  m_Father: {fileID: 1810156096}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.35355324, y: 4}
   m_SizeDelta: {x: 1080, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677431480
@@ -18528,8 +18527,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 1240406418}
+        m_MethodName: EndSession
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19370,7 +19369,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1240406419}
-        m_MethodName: Pause_Resume
+        m_MethodName: Pause_Options
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20302,6 +20301,7 @@ MonoBehaviour:
   PauseMain: {fileID: 1029430288}
   PauseOptions: {fileID: 87444217}
   PauseConfirmExit: {fileID: 1024068899}
+  _options: 0
 --- !u!114 &1240406420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29741,6 +29741,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1544026638}
+  - {fileID: 677431479}
   m_Father: {fileID: 1240406417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

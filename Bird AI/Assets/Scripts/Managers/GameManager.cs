@@ -9,10 +9,8 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     [Header("Player Locations")]
-    [SerializeField]
-        private GameObject _wpHome;
-    [SerializeField]
-        private GameObject _wpStage;
+    public GameObject _wpHome;
+    public GameObject _wpStage;
     
     private bool _isPlaying = false;
     private bool _isPaused = false;
@@ -63,7 +61,7 @@ public class GameManager : MonoBehaviour
         // Debug
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
-            Debug.Log("Playing:" + _isPlaying + " || Paused: " + _isPaused);
+            Debug.Log("Playing:" + _isPlaying + " || Paused: " + _isPaused + " || Options: " + UIController._options);
         }
     }
     
@@ -78,8 +76,7 @@ public class GameManager : MonoBehaviour
         UIController.CvsMainMenu.enabled = false;
         CameraController.MovePlayerToStage(_wpStage);
 
-        GameObject myEventSystem = GameObject.Find("EventSystem");
-        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+        UIController.SelectionReset();
     }
 
     public void EndSession()
@@ -88,11 +85,16 @@ public class GameManager : MonoBehaviour
 
         UIController.Pause_ExitToMain();
         CameraController.MovePlayerToMenu(_wpHome);
+
+        UIController.SelectionReset();
     }
 
     public void ResumeGame()
     {
         UIController.Pause_Resume();
+        _isPaused = false;
+
+        UIController.SelectionReset();
     }
 
     public void QuitGame()          // Cancels Editor Playtest or Closes application. :)
@@ -103,4 +105,5 @@ public class GameManager : MonoBehaviour
          Application.Quit();
 #endif
     }
+
 }
