@@ -5,8 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 
+/// <summary>
+/// The UI Controller handles all the UI elements in the game. Commands work stand-alone; however some are called by the Game Manager.
+/// </summary>
+
 public class UIController : MonoBehaviour
 {
+    [Header("EventSystem")]
+    public GameObject EventSystemSlot;
+
     [Header("Canvas Controllers")]
     public Canvas CvsMainMenu;
     public Canvas CvsPauseMenu;
@@ -24,23 +31,9 @@ public class UIController : MonoBehaviour
 
     private bool _options = false;
 
+    // HERE ARE THE FUNCTIONS FOR THE MAIN MENU
 
-    void Awake()
-    {
-        //EventController.Invoke();
-        Switch_MainMenu();
-        Switch_Resume();
-        CvsMainMenu.enabled = true;
-        CvsPauseMenu.enabled = false;
-    }
-
-    /// <summary>
-    /// 
-    /// HERE ARE THE FUNCTIONS FOR THE MAIN MENU
-    /// 
-    /// </summary>
-
-    public void Switch_MainMenu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
+    public void Main_Menu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
     {
         MenuMain.SetActive(true);
         MenuOptions.SetActive(false);
@@ -49,53 +42,57 @@ public class UIController : MonoBehaviour
         _options = false;
     }
 
-    public void Switch_MainOptions()        // Switch to Options, Closes Main Menu Panel.
+    public void Main_Options()        // Switch to Options, Closes Main Menu Panel.
     {
         MenuMain.SetActive(false);
         MenuOptions.SetActive(true);
         _options = true;
     }
 
-    public void Switch_Credits()            // Switch to Credits, Closes Main Menu Panel.
+    public void Main_Credits()            // Switch to Credits, Closes Main Menu Panel.
     {
         MenuMain.SetActive(false);
         MenuCredits.SetActive(true);
     }
 
-    public void Switch_ConfirmExit()        // Opens Exit Confirm Panel.
+    public void Main_ConfirmExit()        // Opens Exit Confirm Panel.
     {
         MenuConfirmExit.SetActive(true);
     }
 
-    /// <summary>
-    ///  
-    /// HERE ARE THE FUNCTIONS FOR THE PAUSE MENU
-    /// 
-    /// </summary>
+    // HERE ARE THE FUNCTIONS FOR THE PAUSE MENU
 
-    public void Switch_Resume()
+    public void Pause_Main()
     {
-        PauseMain.SetActive(false);
+        CvsPauseMenu.enabled = true;
+        PauseMain.SetActive(true);
         PauseOptions.SetActive(false);
         PauseConfirmExit.SetActive(false);
     }
 
-    public void Switch_PauseOptions()
+    public void Pause_Resume()
+    {
+        PauseMain.SetActive(false);
+        PauseOptions.SetActive(false);
+        PauseConfirmExit.SetActive(false);
+        CvsPauseMenu.enabled = false;
+    }
+
+    public void Pause_Options()
     {
         PauseMain.SetActive(false);
         PauseOptions.SetActive(true);
     }
 
-    public void Switch_PauseConfirmExit()
+    public void Pause_ConfirmExit()
     {
         PauseMain.SetActive(false);
         PauseOptions.SetActive(true);
     }
 
-    public void ExitToMainMenu()
+    public void Pause_ExitToMain()
     {
-        CvsMainMenu.enabled = false;
-        CvsPauseMenu.enabled = true;
-
+        CvsPauseMenu.enabled = false;
+        CvsMainMenu.enabled = true;
     }
 }

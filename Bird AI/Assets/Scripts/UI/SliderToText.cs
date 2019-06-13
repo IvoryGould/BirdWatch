@@ -17,14 +17,8 @@ public class SliderToText : MonoBehaviour
         ShowSliderValue();
     }
 
-    void Update()
-    {
-        
-    }
-    
     public void ShowSliderValue()
     {
-        //Debug.Log(Slider.value);
         string _sliderMessage = Slider.value.ToString();
         _sliderText.text = _sliderMessage;
     }
