@@ -16,7 +16,7 @@ public class specialSleep : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sBWakeUp == true)
+        if (sBWakeUp == true)
         {
             StartCoroutine(WakeUp());
             sBWakeUp = false;
@@ -26,9 +26,10 @@ public class specialSleep : MonoBehaviour
     IEnumerator WakeUp()
     {
         sB.enabled = false;
-        yield return new WaitForSeconds(Random.Range(5,6));
+        yield return new WaitForSeconds(Random.Range(12, 40));
         sB.enabled = true;
         sBWakeUp = false;
         StopCoroutine(WakeUp());
     }
 }
+

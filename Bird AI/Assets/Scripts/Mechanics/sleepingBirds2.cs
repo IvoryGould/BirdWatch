@@ -12,7 +12,11 @@ public class sleepingBirds2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rB.enabled = true;
+        rB1.enabled = true;
+        rB2.enabled = true;
+        rB3.enabled = true;
+        // Grace period
         StartCoroutine(WakeUp());
     }
 
