@@ -49,17 +49,23 @@ public class UIController : MonoBehaviour
         MenuMain.SetActive(false);
         MenuOptions.SetActive(true);
         _options = true;
+
+        SelectionReset();
     }
 
     public void Main_Credits()            // Switch to Credits, Closes Main Menu Panel.
     {
         MenuMain.SetActive(false);
         MenuCredits.SetActive(true);
+
+        SelectionReset();
     }
 
     public void Main_ConfirmExit()        // Opens Exit Confirm Panel.
     {
         MenuConfirmExit.SetActive(true);
+
+        SelectionReset();
     }
 
     // HERE ARE THE FUNCTIONS FOR THE PAUSE MENU
@@ -70,6 +76,7 @@ public class UIController : MonoBehaviour
         PauseMain.SetActive(true);
         PauseOptions.SetActive(false);
         PauseConfirmExit.SetActive(false);
+        _options = false;
 
         SelectionReset();
     }
@@ -80,6 +87,8 @@ public class UIController : MonoBehaviour
         PauseOptions.SetActive(false);
         PauseConfirmExit.SetActive(false);
         CvsPauseMenu.enabled = false;
+
+        SelectionReset();
     }
 
     public void Pause_Options()
@@ -87,18 +96,23 @@ public class UIController : MonoBehaviour
         PauseMain.SetActive(false);
         PauseOptions.SetActive(true);
         _options = true;
+
+        SelectionReset();
     }
 
     public void Pause_ConfirmExit()
     {
-        PauseMain.SetActive(false);
-        PauseOptions.SetActive(true);
+        PauseConfirmExit.SetActive(true);
+
+        SelectionReset();
     }
 
     public void Pause_ExitToMain()
     {
         CvsPauseMenu.enabled = false;
         CvsMainMenu.enabled = true;
+
+        SelectionReset();
     }
 
     // Quality of Life - unselect last option

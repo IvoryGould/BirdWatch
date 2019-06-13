@@ -82,8 +82,10 @@ public class GameManager : MonoBehaviour
     public void EndSession()
     {
         _isPlaying = false;
+        _isPaused = false;
 
-        UIController.Pause_ExitToMain();
+        UIController.CvsPauseMenu.enabled = false;
+        UIController.CvsMainMenu.enabled = true;
         CameraController.MovePlayerToMenu(_wpHome);
 
         UIController.SelectionReset();
