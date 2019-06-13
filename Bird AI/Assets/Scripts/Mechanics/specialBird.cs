@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveToPoint : MonoBehaviour
+public class specialBird : MonoBehaviour
 {
     private Vector3 point;
     private Vector3 homePoint;
@@ -41,8 +41,6 @@ public class moveToPoint : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(newHDir);
             StartCoroutine(SpawnPoint());
         }
-
-
     }
 
     IEnumerator NextPoint()
@@ -60,13 +58,13 @@ public class moveToPoint : MonoBehaviour
     IEnumerator SpawnPoint()
     {
         // Return the birds home
-        //while (true)
-        //{
-            yield return new WaitForSeconds(Random.Range(12, 40));
-            int homeRand = Random.Range(0, homeTarget.Length);
-            homePoint = homeTarget[homeRand].position;
-            birdPoints = 0;
-        //}
+        int homeRand = Random.Range(0, homeTarget.Length);
+        homePoint = homeTarget[homeRand].position;
+        
+        
+        
+        yield return new WaitForSeconds(Random.Range(12, 40));
+        specialSleep.sBWakeUp = true;
+        birdPoints = 0;
     }
 }
-

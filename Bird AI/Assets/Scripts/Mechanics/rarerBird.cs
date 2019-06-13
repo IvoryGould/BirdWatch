@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveToPoint : MonoBehaviour
+public class rarerBird : MonoBehaviour
 {
     private Vector3 point;
     private Vector3 homePoint;
@@ -62,11 +62,10 @@ public class moveToPoint : MonoBehaviour
         // Return the birds home
         //while (true)
         //{
-            yield return new WaitForSeconds(Random.Range(12, 40));
-            int homeRand = Random.Range(0, homeTarget.Length);
-            homePoint = homeTarget[homeRand].position;
-            birdPoints = 0;
+        yield return new WaitForSeconds(Random.Range(30, 50));
+        int homeRand = Random.Range(0, homeTarget.Length);
+        homePoint = homeTarget[homeRand].position;
+        birdPoints = 0;
         //}
     }
 }
-
