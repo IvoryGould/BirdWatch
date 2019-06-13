@@ -9,15 +9,18 @@ public class UIController : MonoBehaviour
 {
     [Header("Canvas Controllers")]
     public Canvas CvsMainMenu;
-    //public Canvas CvsPause;
+    public Canvas CvsPauseMenu;
 
-    [Header("Menu Slots")]
+    [Header("Main Menu Slots")]
     public GameObject MenuMain;
     public GameObject MenuOptions;
     public GameObject MenuCredits;
     public GameObject MenuConfirmExit;
 
-    //public UnityEvent EventController;
+    [Header("Pause Menu Slots")]
+    public GameObject PauseMain;
+    public GameObject PauseOptions;
+    public GameObject PauseConfirmExit;
 
     private bool _options = false;
 
@@ -26,15 +29,16 @@ public class UIController : MonoBehaviour
     {
         //EventController.Invoke();
         Switch_MainMenu();
-        //CvsPause.enabled = false;
+        Switch_Resume();
+        CvsMainMenu.enabled = true;
+        CvsPauseMenu.enabled = false;
     }
 
-
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// 
+    /// HERE ARE THE FUNCTIONS FOR THE MAIN MENU
+    /// 
+    /// </summary>
 
     public void Switch_MainMenu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
     {
@@ -42,11 +46,10 @@ public class UIController : MonoBehaviour
         MenuOptions.SetActive(false);
         MenuCredits.SetActive(false);
         MenuConfirmExit.SetActive(false);
-
         _options = false;
     }
 
-    public void Switch_Options()            // Switch to Options, Closes Main Menu Panel.
+    public void Switch_MainOptions()        // Switch to Options, Closes Main Menu Panel.
     {
         MenuMain.SetActive(false);
         MenuOptions.SetActive(true);
@@ -64,12 +67,35 @@ public class UIController : MonoBehaviour
         MenuConfirmExit.SetActive(true);
     }
 
-    public void QuitGame()                  // Cancels Editor Playtest or Closes application. :)
+    /// <summary>
+    ///  
+    /// HERE ARE THE FUNCTIONS FOR THE PAUSE MENU
+    /// 
+    /// </summary>
+
+    public void Switch_Resume()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
+        PauseMain.SetActive(false);
+        PauseOptions.SetActive(false);
+        PauseConfirmExit.SetActive(false);
+    }
+
+    public void Switch_PauseOptions()
+    {
+        PauseMain.SetActive(false);
+        PauseOptions.SetActive(true);
+    }
+
+    public void Switch_PauseConfirmExit()
+    {
+        PauseMain.SetActive(false);
+        PauseOptions.SetActive(true);
+    }
+
+    public void ExitToMainMenu()
+    {
+        CvsMainMenu.enabled = false;
+        CvsPauseMenu.enabled = true;
+
     }
 }

@@ -1,0 +1,5 @@
+FONTS:
+	Title - 
+		https://www.1001fonts.com/drift-wood-font.html
+	Menus -
+		https://www.1001fonts.com/camp-granada-nf-font.html
