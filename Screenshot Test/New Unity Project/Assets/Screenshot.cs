@@ -16,19 +16,17 @@ public class Screenshot : MonoBehaviour
     public Renderer albumTwo;
     public Renderer albumThree;
 
-    public Renderer special;
-
+    // screenshot preview
     public Renderer polaroid;
 
     // bird layer mask
     public LayerMask birdLayer;
 
-    // set this to at least 2, so that the screenshot saves in time
     private int screenshotDelay = 2;
     private int screenshotCount = 0;
 
+    private bool screenshotTaken;
     private bool birdTaken;
-    private bool normalTaken;
     private bool onPolaroid;
 
     private string birdDetected;
@@ -46,13 +44,11 @@ public class Screenshot : MonoBehaviour
         albumTwo = albumTwo.GetComponent<Renderer>();
         albumThree = albumThree.GetComponent<Renderer>();
 
-        special = special.GetComponent<Renderer>();
-
         polaroid = polaroid.GetComponent<Renderer>();
 
 
         birdTaken = false;
-        normalTaken = false;
+        screenshotTaken = false;
         onPolaroid = false;
     }
 
@@ -60,50 +56,50 @@ public class Screenshot : MonoBehaviour
     private void Update()
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit[] hits = Physics.SphereCastAll(ray, 1f, Mathf.Infinity, birdLayer);
+        // distance set to infinite so that there won't be an issue with range
+        RaycastHit[] hits = Physics.SphereCastAll(ray, 1.5f, Mathf.Infinity, birdLayer);
         //if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, birdLayer) && Input.GetKeyDown("k"))
 
-            // distance set to infinite so that there won't be an issue with range
-        if(Input.GetKeyDown("k") && !birdTaken)
+        if(Input.GetKeyDown("k") && !screenshotTaken)
         {
             StartCoroutine(ScreenshotCapture());
+            screenshotTaken = true;
             foreach (RaycastHit hit in hits)
-            {
+            {             
                 birdDetected += "Species" + hit.transform.tag;
-                Debug.Log("Hit Species " + birdDetected);
                 Debug.Log(birdDetected);
+                birdTaken = true;
             }
-            birdTaken = true;
         }
 
+        if (Input.GetKeyDown("y") && screenshotTaken)
+        {
+            switch(birdTaken)
+            {
+                // displays screenshot onto clipboard
+                case true:
+                    BirdSaving();
+                    break;
+                // random screenshots
+                case false:
+                    NormalSaving();
+                    break;
+            }
+        }
+        else if (Input.GetKeyDown("n") && screenshotTaken)
+        {
+            // deletes screenshot
+            PolaroidClear();
+        }
 
-        /*else*/
-        //if (screenshotCount < 3 && Input.GetKeyDown("k"))
+        //if (Input.GetKeyDown("y") && normalTaken)
+        //    NormalSaving();
+        //else if(Input.GetKeyDown("n") && normalTaken)
         //{
-        //    StartCoroutine(ScreenshotCapture());
-        //    Debug.Log("Normal Screenshot");
-        //    normalTaken = true;
+        //    texture = null;
+        //    polaroid.material.SetTexture("_MainTex", null);
+        //    normalTaken = false;
         //}
-
-        // displays screenshot onto clipboard
-        if (Input.GetKeyDown("y") && birdTaken)
-            BirdSaving();
-        else if (Input.GetKeyDown("n") && birdTaken)
-        {
-            texture = null;
-            polaroid.material.SetTexture("_MainTex", null);
-            birdDetected = string.Empty;
-            birdTaken = false;
-        }
-
-        if (Input.GetKeyDown("y") && normalTaken)
-            NormalSaving();
-        else if(Input.GetKeyDown("n") && normalTaken)
-        {
-            texture = null;
-            polaroid.material.SetTexture("_MainTex", null);
-            normalTaken = false;
-        }
 
         // displays screenshot onto a polaroid
         if (onPolaroid)
@@ -117,7 +113,7 @@ public class Screenshot : MonoBehaviour
     {
         texture = ScreenCapture.CaptureScreenshotAsTexture();
         Debug.Log(string.Format("Took a screenshot"));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(screenshotDelay);
 
         onPolaroid = true;
 
@@ -140,13 +136,13 @@ public class Screenshot : MonoBehaviour
                 clipThree.material.SetTexture("_MainTex", texture);
                 break;
 
-            case "SpeciesBird1SpeciesBird2SpeciesBird3":
-                special.material.SetTexture("_MainTex", texture);
+            default:
+                // two or more birds save to normal quads
+                NormalSaving();
                 break;
+
         }
-        polaroid.material.SetTexture("_MainTex", null);
-        birdTaken = false;
-        birdDetected = string.Empty;
+        PolaroidClear();
     }
 
     private void NormalSaving()
@@ -155,24 +151,32 @@ public class Screenshot : MonoBehaviour
         {
             case 0:
                 albumOne.material.SetTexture("_MainTex", texture);
-                polaroid.material.SetTexture("_MainTex", null);
-                screenshotCount += 1;
-                normalTaken = false;
                 break;
 
             case 1:
                 albumTwo.material.SetTexture("_MainTex", texture);
-                polaroid.material.SetTexture("_MainTex", null);
-                screenshotCount += 1;
-                normalTaken = false;
                 break;
 
             case 2:
                 albumThree.material.SetTexture("_MainTex", texture);
-                polaroid.material.SetTexture("_MainTex", null);
-                screenshotCount += 1;
-                normalTaken = false;
+                break;
+
+            default:
+                albumThree.material.SetTexture("_MainTex", texture);
                 break;
         }
+        PolaroidClear();
+        screenshotCount += 1;
+    }
+
+    private void PolaroidClear()
+    {
+        birdTaken = false;
+        screenshotTaken = false;
+
+        texture = null; 
+        polaroid.material.SetTexture("_MainTex", null);
+
+        birdDetected = string.Empty;
     }
 }
