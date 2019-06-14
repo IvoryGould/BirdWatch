@@ -16,6 +16,8 @@ public class Screenshot : MonoBehaviour
     public Renderer albumTwo;
     public Renderer albumThree;
 
+    public Renderer special;
+
     public Renderer polaroid;
 
     // bird layer mask
@@ -44,6 +46,8 @@ public class Screenshot : MonoBehaviour
         albumTwo = albumTwo.GetComponent<Renderer>();
         albumThree = albumThree.GetComponent<Renderer>();
 
+        special = special.GetComponent<Renderer>();
+
         polaroid = polaroid.GetComponent<Renderer>();
 
 
@@ -56,21 +60,30 @@ public class Screenshot : MonoBehaviour
     private void Update()
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit[] hits = Physics.SphereCastAll(ray, 1f, Mathf.Infinity, birdLayer);
+        //if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, birdLayer) && Input.GetKeyDown("k"))
 
-        // distance set to infinite so that there won't be an issue with range
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, birdLayer) && Input.GetKeyDown("k"))
+            // distance set to infinite so that there won't be an issue with range
+        if(Input.GetKeyDown("k") && !birdTaken)
         {
-            birdDetected = "Species" + hit.transform.tag;
             StartCoroutine(ScreenshotCapture());
-            Debug.Log("Hit Species " + birdDetected);
+            foreach (RaycastHit hit in hits)
+            {
+                birdDetected += "Species" + hit.transform.tag;
+                Debug.Log("Hit Species " + birdDetected);
+                Debug.Log(birdDetected);
+            }
             birdTaken = true;
         }
-        else if(screenshotCount < 3 && Input.GetKeyDown("k"))
-        {
-            StartCoroutine(ScreenshotCapture());
-            Debug.Log("Normal Screenshot");
-            normalTaken = true;
-        }
+
+
+        /*else*/
+        //if (screenshotCount < 3 && Input.GetKeyDown("k"))
+        //{
+        //    StartCoroutine(ScreenshotCapture());
+        //    Debug.Log("Normal Screenshot");
+        //    normalTaken = true;
+        //}
 
         // displays screenshot onto clipboard
         if (Input.GetKeyDown("y") && birdTaken)
@@ -79,6 +92,7 @@ public class Screenshot : MonoBehaviour
         {
             texture = null;
             polaroid.material.SetTexture("_MainTex", null);
+            birdDetected = string.Empty;
             birdTaken = false;
         }
 
@@ -116,22 +130,23 @@ public class Screenshot : MonoBehaviour
         {
             case "SpeciesBird1":
                 clipOne.material.SetTexture("_MainTex", texture);
-                polaroid.material.SetTexture("_MainTex", null);
-                birdTaken = false;
                 break;
 
             case "SpeciesBird2":
-                clipTwo.material.SetTexture("_MainTex", texture);
-                polaroid.material.SetTexture("_MainTex", null);
-                birdTaken = false;
+                clipTwo.material.SetTexture("_MainTex", texture);          
                 break;
 
             case "SpeciesBird3":
                 clipThree.material.SetTexture("_MainTex", texture);
-                polaroid.material.SetTexture("_MainTex", null);
-                birdTaken = false;
+                break;
+
+            case "SpeciesBird1SpeciesBird2SpeciesBird3":
+                special.material.SetTexture("_MainTex", texture);
                 break;
         }
+        polaroid.material.SetTexture("_MainTex", null);
+        birdTaken = false;
+        birdDetected = string.Empty;
     }
 
     private void NormalSaving()
