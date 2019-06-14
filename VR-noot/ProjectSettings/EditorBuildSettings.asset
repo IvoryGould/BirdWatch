@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/main.unity
     guid: ab96c1a3551aae44492055c772f6484b
   - enabled: 0
     path: Assets/Scenes/ERVIN - Workspace.unity
     guid: 311c1ab91fb0cca409eb2fc48d7768fd
+  - enabled: 1
+    path: Assets/Scenes/Alex_Greybox.unity
+    guid: f7e9d7f975bd2db4994d593c563b7ab6
   m_configObjects: {}

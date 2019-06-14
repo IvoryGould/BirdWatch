@@ -8,8 +8,6 @@ public class Screenshot : MonoBehaviour
 {
     public Camera cam;
 
-    public GameObject debugObj;
-
     // materials for the quads
     public Renderer rendOne;
     public Renderer rendTwo;
