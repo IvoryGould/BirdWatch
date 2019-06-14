@@ -43,12 +43,12 @@ public class Screenshot : MonoBehaviour
 
     private void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && screenshotCount < 3)
-        {
-            StartCoroutine(ScreenshotCapture());
+        //if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && screenshotCount < 3)
+        //{
+        //    StartCoroutine(ScreenshotCapture());
             
-        }
-        else if (OVRInput.GetDown(OVRInput.Button.Two) && screenshotTaken)
+        //}
+        /*else*/ if (OVRInput.GetDown(OVRInput.Button.Two) && screenshotTaken)
         {
             // displays screenshots in game
             switch (screenshotCount)
@@ -84,7 +84,7 @@ public class Screenshot : MonoBehaviour
         }
     }
 
-    IEnumerator ScreenshotCapture()
+    public IEnumerator ScreenshotCapture()
     {
         yield return new WaitForEndOfFrame();
         texture = ScreenCapture.CaptureScreenshotAsTexture();
