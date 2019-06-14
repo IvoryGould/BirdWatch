@@ -32,9 +32,7 @@ public class lookareatest : MonoBehaviour
 
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
 
-        RaycastHit hit;
-
-        if (OVRInput.GetDown(OVRInput.Button.One))
+        if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown(KeyCode.Space))
             zoomToggle = !zoomToggle;
 
         if (zoomToggle == true)
@@ -54,24 +52,11 @@ public class lookareatest : MonoBehaviour
 
             }
 
-            if (Physics.Raycast(ray, out hit) && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)){
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || Input.GetKeyDown(KeyCode.A)){
 
                 zoomOverlay.enabled = false;
                 StartCoroutine(screenshot.ScreenshotCapture());
 
-                if (hit.transform.tag == "bird")
-                {
-                    if (hit.collider.gameObject.GetComponent<MeshRenderer>().material.color != Color.cyan)
-                    {
-                        hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = Color.cyan;
-                    }
-                    else if (hit.collider.gameObject.GetComponent<MeshRenderer>().material.color == Color.cyan)
-                    {
-
-                        hit.collider.gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-
-                    }
-                }
             }
             else {
 
