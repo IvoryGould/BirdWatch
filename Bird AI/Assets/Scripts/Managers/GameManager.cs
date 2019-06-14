@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     UIController UIController;
     CameraController CameraController;
+    UIAnimationManager UIAnimationManager;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
         UIController = GetComponent<UIController>();
         CameraController = GetComponent<CameraController>();
+        UIAnimationManager = GetComponent<UIAnimationManager>();
     }
 
     private void Start()
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        // PAUSE FUNCTION
+        // PAUSE FUNCTION (Debug)
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (_isPlaying == true)
@@ -46,14 +48,14 @@ public class GameManager : MonoBehaviour
                 {
                     _isPaused = true;
                     UIController.Pause_Main();
-                    Debug.Log("Paused");
+                    Debug.Log("Game Paused");
                 }
 
                 else if (_isPaused == true)
                 {
                     _isPaused = false;
                     UIController.Pause_Resume();
-                    Debug.Log("Game Resume");
+                    Debug.Log("Game Resumed");
                 }
             }
         }
@@ -97,6 +99,16 @@ public class GameManager : MonoBehaviour
         _isPaused = false;
 
         UIController.SelectionReset();
+    }
+
+    public void TakePhoto()
+    {
+
+    }
+
+    public void ReturnFromPhoto()
+    {
+
     }
 
     public void QuitGame()          // Cancels Editor Playtest or Closes application. :)

@@ -29,6 +29,8 @@ public class UIController : MonoBehaviour
     public GameObject PauseOptions;
     public GameObject PauseConfirmExit;
 
+
+
     public bool _options = false;      // safety for slider functionality
 
     // HERE ARE THE FUNCTIONS FOR THE MAIN MENU
