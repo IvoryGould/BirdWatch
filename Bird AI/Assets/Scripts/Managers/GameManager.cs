@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     
     private bool _isPlaying = false;
     private bool _isPaused = false;
+    //private bool _snapPhoto = false;
 
     UIController UIController;
     CameraController CameraController;
@@ -60,10 +61,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Debug
+        if (Input.GetKeyDown(KeyCode.Home))
+        {
+            UIAnimationManager.PhotoAnim();
+        }
+
+        // State Debug
         if (Input.GetKeyDown(KeyCode.BackQuote))
         {
             Debug.Log("Playing:" + _isPlaying + " || Paused: " + _isPaused + " || Options: " + UIController._options);
+            Debug.Log("Snapshot Taken:" + UIAnimationManager._fireCamera);
         }
     }
     

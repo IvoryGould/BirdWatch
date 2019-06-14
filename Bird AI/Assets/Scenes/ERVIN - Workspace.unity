@@ -21229,7 +21229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94443cf5f3c7af469ac2f453ff9a2f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Animator_PreviewScreen: {fileID: 0}
+  ObjPreviewImage: {fileID: 1816710743}
+  ObjPreviewConfirm: {fileID: 1926390092}
 --- !u!1001 &1240498455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30815,7 +30816,7 @@ Animator:
   m_GameObject: {fileID: 1816710743}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 841f66778d9c8e9478d45941ca74c7ec, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e8dd27cae7fdc4439a89862f47dcb94, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -32937,6 +32938,7 @@ GameObject:
   - component: {fileID: 1926390096}
   - component: {fileID: 1926390095}
   - component: {fileID: 1926390094}
+  - component: {fileID: 1926390097}
   m_Layer: 0
   m_Name: Confirm Panel
   m_TagString: Untagged
@@ -33026,6 +33028,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926390092}
   m_CullTransparentMesh: 0
+--- !u!95 &1926390097
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926390092}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77739143ad3f5fe4ca9de6955a363ab5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1939828034
 PrefabInstance:
   m_ObjectHideFlags: 0
