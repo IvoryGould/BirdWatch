@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 9f1e2c6c1da9bb04ea68fcca808c60c1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bird_01_MESH
+    100004: body_GEO
+    100006: Breast_JNT
+    100008: clavicle_L_JNT
+    100010: clavicle_R_JNT
+    100012: COG_JNT
+    100014: Foot_L_GEO
+    100016: foot_R_GEO
+    100018: head_JNT
+    100020: leg_L_JNT
+    100022: leg_r_JNT
+    100024: root_JNT
+    100026: Tail_01_JNT
+    100028: tail_02_JNT
+    100030: tail_03_JNT
+    100032: tail_04_JNT
+    100034: tail_05_JNT
+    100036: wing_L_01_JNT
+    100038: wing_L_02_JNT
+    100040: Wing_L_03_JNT
+    100042: wing_L_04_JNT
+    100044: wing_L_GEO
+    100046: wing_R_01_JNT
+    100048: wing_R_02_JNT
+    100050: wing_R_03_JNT
+    100052: wing_R_04_JNT
+    100054: wing_R_GEO
+    400000: //RootNode
+    400002: Bird_01_MESH
+    400004: body_GEO
+    400006: Breast_JNT
+    400008: clavicle_L_JNT
+    400010: clavicle_R_JNT
+    400012: COG_JNT
+    400014: Foot_L_GEO
+    400016: foot_R_GEO
+    400018: head_JNT
+    400020: leg_L_JNT
+    400022: leg_r_JNT
+    400024: root_JNT
+    400026: Tail_01_JNT
+    400028: tail_02_JNT
+    400030: tail_03_JNT
+    400032: tail_04_JNT
+    400034: tail_05_JNT
+    400036: wing_L_01_JNT
+    400038: wing_L_02_JNT
+    400040: Wing_L_03_JNT
+    400042: wing_L_04_JNT
+    400044: wing_L_GEO
+    400046: wing_R_01_JNT
+    400048: wing_R_02_JNT
+    400050: wing_R_03_JNT
+    400052: wing_R_04_JNT
+    400054: wing_R_GEO
+    2100000: lambert1
+    4300000: body_GEO
+    4300002: foot_R_GEO
+    4300004: Foot_L_GEO
+    4300006: wing_L_GEO
+    4300008: wing_R_GEO
+    9500000: //RootNode
+    13700000: body_GEO
+    13700002: Foot_L_GEO
+    13700004: foot_R_GEO
+    13700006: wing_L_GEO
+    13700008: wing_R_GEO
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -22,17 +22,16 @@ public class lookareatest : MonoBehaviour
         screenshot = GameObject.Find("ZoomCam").GetComponent<Screenshot>();
         cam = GetComponent<Camera>();
         zoomCanvas.enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        OVRInput.Update();
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-
-        if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetKeyDown(KeyCode.Space))
+        if (OVRInput.GetDown(OVRInput.Button.One))
             zoomToggle = !zoomToggle;
 
         if (zoomToggle == true)
@@ -52,7 +51,7 @@ public class lookareatest : MonoBehaviour
 
             }
 
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || Input.GetKeyDown(KeyCode.A)){
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger)){
 
                 zoomOverlay.enabled = false;
                 StartCoroutine(screenshot.ScreenshotCapture());

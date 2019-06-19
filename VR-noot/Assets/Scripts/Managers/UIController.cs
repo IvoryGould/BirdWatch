@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [Header("Canvas Controllers")]
     public Canvas CvsMainMenu;
     //public Canvas CvsPause;
+    public GameObject mainMenuGameObject;
 
     [Header("Menu Slots")]
     public GameObject MenuMain;
@@ -27,11 +28,14 @@ public class UIController : MonoBehaviour
         //EventController.Invoke();
         Switch_MainMenu();
         //CvsPause.enabled = false;
+
     }
 
 
     void Update()
     {
+
+
 
     }
 

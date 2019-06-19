@@ -4,17 +4,41 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-     
-    public GameObject Camera;
-    //private GameObject _wpMenu, _wpStage;
 
-    public void MovePlayerToStage(GameObject _wpStage)
+    public GameObject playCamera;
+    public GameObject menuCamera;
+
+    private void Awake()
     {
-        Camera.transform.rotation = _wpStage.transform.rotation;
+
+        playCamera = GameObject.Find("OVRCameraRig Play");
+        menuCamera = GameObject.Find("OVRCameraRig Menu");
+
+        //audioClick = Resources.Load("Audio/Click") as AudioClip;
+
     }
 
-    public void MovePlayerToMenu(GameObject _wpHome)
+    private void Start()
     {
-        Camera.transform.position = _wpHome.transform.position;
+
+        playCamera.SetActive(false);
+
     }
+
+    private void Update()
+    {
+        
+
+
+    }
+
+    public void MovePlayerToStage() {
+
+        //source.PlayOneShot(audioClick);
+
+        playCamera.SetActive(true);
+        menuCamera.SetActive(false);
+
+    }
+
 }
