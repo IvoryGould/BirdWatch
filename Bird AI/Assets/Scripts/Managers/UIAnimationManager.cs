@@ -11,33 +11,29 @@ public class UIAnimationManager : MonoBehaviour
     private Animator AnimatorPreviewImage;
     private Animator AnimatorPreviewConfirm;
 
-    UIController UIController;
-
     public bool _fireCamera;
 
     public void Start()
     {
         _fireCamera = false;
-        UIController = GetComponent<UIController>();
         AnimatorPreviewImage = ObjPreviewImage.GetComponent<Animator>();
         AnimatorPreviewConfirm = ObjPreviewConfirm.GetComponent<Animator>();
     }
 
     public void PhotoAnim()
     {
+        
         _fireCamera = true;
         AnimatorPreviewImage.SetBool("_fireCamera", _fireCamera);
         AnimatorPreviewConfirm.SetBool("_fireCamera", _fireCamera);
-        
+        Debug.Log("Photo Taken " + _fireCamera);
     }
 
     public void ResetAnimStates()
     {
-        _fireCamera = !true;
+        _fireCamera = false;
         AnimatorPreviewImage.SetBool("_fireCamera", _fireCamera);
         AnimatorPreviewConfirm.SetBool("_fireCamera", _fireCamera);
-        Debug.Log("Photo Reverted " + !_fireCamera);
-
-        UIController.SelectionReset();
+        Debug.Log("Photo Reverted " + _fireCamera);
     }
 }

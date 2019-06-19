@@ -61,14 +61,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Placeholder Snapping
         if (Input.GetKeyDown(KeyCode.Home))
         {
-            if (_isPlaying == true)
-            {
-                UIAnimationManager.PhotoAnim();
-                Debug.Log("Photo Taken " + UIAnimationManager._fireCamera);
-            }
+            UIAnimationManager.PhotoAnim();
         }
 
         // State Debug
@@ -120,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void ReturnFromPhoto()
     {
-        UIAnimationManager.ResetAnimStates();
+
     }
 
     public void QuitGame()          // Cancels Editor Playtest or Closes application. :)
