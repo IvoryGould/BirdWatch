@@ -2952,8 +2952,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240406419}
-        m_MethodName: Pause_Main
+      - m_Target: {fileID: 1240406418}
+        m_MethodName: ReturnFromPhoto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19879,7 +19879,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1240406418}
-        m_MethodName: EndSession
+        m_MethodName: ReturnFromPhoto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21231,6 +21231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjPreviewImage: {fileID: 1816710743}
   ObjPreviewConfirm: {fileID: 1926390092}
+  _fireCamera: 0
 --- !u!1001 &1240498455
 PrefabInstance:
   m_ObjectHideFlags: 0
