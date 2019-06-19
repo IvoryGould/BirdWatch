@@ -7,7 +7,7 @@ public class Screenshot : MonoBehaviour
 {
     public Camera cam;
 
-    // materials for the quads
+    // materials for quads
     public Renderer clipOne;
     public Renderer clipTwo;
     public Renderer clipThree;
@@ -27,7 +27,7 @@ public class Screenshot : MonoBehaviour
 
     private bool screenshotTaken;
     private bool birdTaken;
-    public bool onPolaroid;
+    private bool onPolaroid;
 
     private string birdDetected;
 
@@ -56,15 +56,12 @@ public class Screenshot : MonoBehaviour
     private void Update()
     {
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        // distance set to infinite so that there won't be an issue with range
-        RaycastHit hit;
-        //if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, birdLayer) && Input.GetKeyDown("k"))
 
         if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && !screenshotTaken)
         {
-            //StartCoroutine(ScreenshotCapture());
             screenshotTaken = true;
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, birdLayer))
+            // distance set to infinite so that there won't be an issue with range
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, birdLayer))
             {             
                 birdDetected += "Species" + hit.transform.tag;
                 Debug.Log(birdDetected);
@@ -92,15 +89,6 @@ public class Screenshot : MonoBehaviour
             PolaroidClear();
         }
 
-        //if (Input.GetKeyDown("y") && normalTaken)
-        //    NormalSaving();
-        //else if(Input.GetKeyDown("n") && normalTaken)
-        //{
-        //    texture = null;
-        //    polaroid.material.SetTexture("_MainTex", null);
-        //    normalTaken = false;
-        //}
-
         // displays screenshot onto a polaroid
         if (onPolaroid)
         {
@@ -111,8 +99,8 @@ public class Screenshot : MonoBehaviour
 
     public IEnumerator ScreenshotCapture()
     {
+        // captures screen, then converts it into a texture
         texture = ScreenCapture.CaptureScreenshotAsTexture();
-        Debug.Log(string.Format("Took a screenshot"));
         yield return new WaitForSeconds(screenshotDelay);
 
         onPolaroid = true;
@@ -137,7 +125,7 @@ public class Screenshot : MonoBehaviour
                 break;
 
             default:
-                // two or more birds save to normal quads
+                // failsafe
                 NormalSaving();
                 break;
 
@@ -162,6 +150,7 @@ public class Screenshot : MonoBehaviour
                 break;
 
             default:
+                // failsafe
                 albumThree.material.SetTexture("_MainTex", texture);
                 break;
         }
