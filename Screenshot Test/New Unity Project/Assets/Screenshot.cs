@@ -19,6 +19,9 @@ public class Screenshot : MonoBehaviour
     // screenshot preview
     public Renderer polaroid;
 
+    public Image testImage;
+    private Sprite testSprite;
+
     // bird layer mask
     public LayerMask birdLayer;
 
@@ -46,6 +49,7 @@ public class Screenshot : MonoBehaviour
 
         polaroid = polaroid.GetComponent<Renderer>();
 
+        testImage.enabled = false;
 
         birdTaken = false;
         screenshotTaken = false;
@@ -100,6 +104,9 @@ public class Screenshot : MonoBehaviour
         if (onPolaroid)
         {
             polaroid.material.SetTexture("_MainTex", texture);
+
+            testImage.sprite = testSprite;
+
             onPolaroid = false;
         }
     }
@@ -108,8 +115,10 @@ public class Screenshot : MonoBehaviour
     {
         texture = ScreenCapture.CaptureScreenshotAsTexture();
         Debug.Log(string.Format("Took a screenshot"));
-        yield return new WaitForSeconds(screenshotDelay);
+        yield return new WaitForEndOfFrame();
 
+        testImage.enabled = true;
+        testSprite = Sprite.Create(texture, new Rect(0f, 0f, texture.width, texture.height), new Vector2(1f, 1f), 128f);
         onPolaroid = true;
 
         StopCoroutine(ScreenshotCapture());
@@ -172,7 +181,8 @@ public class Screenshot : MonoBehaviour
 
         texture = null; 
         polaroid.material.SetTexture("_MainTex", null);
-
+        testImage.sprite = null;
+        testImage.enabled = false;
         birdDetected = string.Empty;
     }
 }

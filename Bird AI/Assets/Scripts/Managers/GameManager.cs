@@ -12,18 +12,24 @@ public class GameManager : MonoBehaviour
     public GameObject _wpHome;
     public GameObject _wpStage;
     
-    private bool _isPlaying = false;
-    private bool _isPaused = false;
+    private bool _isPlaying;
+    private bool _isPaused;
     //private bool _snapPhoto = false;
 
+    // classes
     UIController UIController;
     CameraController CameraController;
     UIAnimationManager UIAnimationManager;
+
+    public AudioSource SFXSource;
 
     private void Awake()
     {
         _isPlaying = false;
         _isPaused = false;
+
+        // finds AudioSource attached to camera.
+        SFXSource = GameObject.Find("CAM_Main").GetComponent<AudioSource>();
 
         UIController = GetComponent<UIController>();
         CameraController = GetComponent<CameraController>();
@@ -61,9 +67,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // Placeholder Snapping
         if (Input.GetKeyDown(KeyCode.Home))
         {
-            UIAnimationManager.PhotoAnim();
+            if (_isPlaying == true)
+            {
+                TakePhoto();
+            }
         }
 
         // State Debug
@@ -110,12 +120,15 @@ public class GameManager : MonoBehaviour
 
     public void TakePhoto()
     {
-
+        SFXSource.PlayOneShot(UIController._sFXSnap);
+        UIAnimationManager.PhotoAnim();
+        Debug.Log("Photo Taken " + UIAnimationManager._fireCamera);
     }
 
+    
     public void ReturnFromPhoto()
     {
-
+        UIAnimationManager.ResetAnimStates();
     }
 
     public void QuitGame()          // Cancels Editor Playtest or Closes application. :)

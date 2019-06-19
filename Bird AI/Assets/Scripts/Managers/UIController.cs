@@ -29,14 +29,29 @@ public class UIController : MonoBehaviour
     public GameObject PauseOptions;
     public GameObject PauseConfirmExit;
 
+    [Header("AudioClips")]
+    public static AudioClip _sFXEnter;
+    public static AudioClip _sFXLeave;
+    public static AudioClip _sFXSnap;
 
+    GameManager GameManager;
 
     public bool _options = false;      // safety for slider functionality
 
     // HERE ARE THE FUNCTIONS FOR THE MAIN MENU
 
+    public void Awake()
+    {
+        GameManager = GetComponent<GameManager>();
+        _sFXEnter = Resources.Load("Foggysoft/FX51 - Select 1.wav") as AudioClip;
+        _sFXLeave = Resources.Load("Foggysoft/FX51 - Select 2.wav") as AudioClip;
+        _sFXSnap = Resources.Load("satanicupsman/Camera_Polaroid.wav") as AudioClip;
+    }
+
     public void Main_Menu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
     {
+        GameManager.SFXSource.PlayOneShot(_sFXLeave);
+
         MenuMain.SetActive(true);
         MenuOptions.SetActive(false);
         MenuCredits.SetActive(false);
@@ -48,6 +63,7 @@ public class UIController : MonoBehaviour
 
     public void Main_Options()        // Switch to Options, Closes Main Menu Panel.
     {
+        GameManager.SFXSource.PlayOneShot(_sFXEnter);
         MenuMain.SetActive(false);
         MenuOptions.SetActive(true);
         _options = true;
@@ -57,6 +73,7 @@ public class UIController : MonoBehaviour
 
     public void Main_Credits()            // Switch to Credits, Closes Main Menu Panel.
     {
+        GameManager.SFXSource.PlayOneShot(_sFXEnter);
         MenuMain.SetActive(false);
         MenuCredits.SetActive(true);
 
@@ -65,6 +82,7 @@ public class UIController : MonoBehaviour
 
     public void Main_ConfirmExit()        // Opens Exit Confirm Panel.
     {
+        GameManager.SFXSource.PlayOneShot(_sFXEnter);
         MenuConfirmExit.SetActive(true);
 
         SelectionReset();
@@ -74,6 +92,7 @@ public class UIController : MonoBehaviour
 
     public void Pause_Main()
     {
+        GameManager.SFXSource.PlayOneShot(_sFXEnter);
         CvsPauseMenu.enabled = true;
         PauseMain.SetActive(true);
         PauseOptions.SetActive(false);
@@ -85,6 +104,8 @@ public class UIController : MonoBehaviour
 
     public void Pause_Resume()
     {
+        GameManager.SFXSource.PlayOneShot(_sFXLeave);
+
         PauseMain.SetActive(false);
         PauseOptions.SetActive(false);
         PauseConfirmExit.SetActive(false);
@@ -95,6 +116,8 @@ public class UIController : MonoBehaviour
 
     public void Pause_Options()
     {
+        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+
         PauseMain.SetActive(false);
         PauseOptions.SetActive(true);
         _options = true;
@@ -104,6 +127,8 @@ public class UIController : MonoBehaviour
 
     public void Pause_ConfirmExit()
     {
+        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+
         PauseConfirmExit.SetActive(true);
 
         SelectionReset();
@@ -111,11 +136,15 @@ public class UIController : MonoBehaviour
 
     public void Pause_ExitToMain()
     {
+        GameManager.SFXSource.PlayOneShot(_sFXLeave);
+
         CvsPauseMenu.enabled = false;
         CvsMainMenu.enabled = true;
 
         SelectionReset();
     }
+
+
 
     // Quality of Life - unselect last option
 
