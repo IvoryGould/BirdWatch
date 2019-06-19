@@ -22,8 +22,8 @@ public class Screenshot : MonoBehaviour
     // bird layer mask
     public LayerMask birdLayer;
 
-    private int screenshotDelay = 2;
     private int screenshotCount = 0;
+    private readonly int screenshotDelay = 2;
 
     private bool screenshotTaken;
     private bool birdTaken;
