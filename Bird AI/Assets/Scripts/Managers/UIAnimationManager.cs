@@ -11,16 +11,27 @@ public class UIAnimationManager : MonoBehaviour
     private Animator AnimatorPreviewImage;
     private Animator AnimatorPreviewConfirm;
 
+
+    GameManager GameManager;
     UIController UIController;
 
     public bool _fireCamera;
 
-    public void Start()
+    public void Awake()
     {
         _fireCamera = false;
+
+        GameManager = GetComponent<GameManager>();
+        UIController= GetComponent<UIController>();
+
         UIController = GetComponent<UIController>();
         AnimatorPreviewImage = ObjPreviewImage.GetComponent<Animator>();
         AnimatorPreviewConfirm = ObjPreviewConfirm.GetComponent<Animator>();
+    }
+
+    public void Start()
+    {
+        
     }
 
     public void PhotoAnim()
@@ -34,6 +45,9 @@ public class UIAnimationManager : MonoBehaviour
     public void ResetAnimStates()
     {
         _fireCamera = !true;
+
+        GameManager.SFXSource.PlayOneShot(UIController._sFXEnter);
+
         AnimatorPreviewImage.SetBool("_fireCamera", _fireCamera);
         AnimatorPreviewConfirm.SetBool("_fireCamera", _fireCamera);
         Debug.Log("Photo Reverted " + !_fireCamera);

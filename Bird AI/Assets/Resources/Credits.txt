@@ -3,3 +3,10 @@ FONTS:
 		https://www.1001fonts.com/drift-wood-font.html
 	Menus -
 		https://www.1001fonts.com/camp-granada-nf-font.html
+
+SFX:
+	UI - 
+		[Asset Store - Foggysoft]
+			https://assetstore.unity.com/packages/audio/sound-fx/versatile-game-sound-effects-45503
+		[Freesound.org - satanicupsman]
+			https://freesound.org/people/satanicupsman/sounds/345906/
