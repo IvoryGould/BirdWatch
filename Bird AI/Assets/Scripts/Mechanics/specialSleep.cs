@@ -10,7 +10,7 @@ public class specialSleep : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sBWakeUp = false;
+        sBWakeUp = !true;
     }
 
     // Update is called once per frame
@@ -19,16 +19,16 @@ public class specialSleep : MonoBehaviour
         if (sBWakeUp == true)
         {
             StartCoroutine(WakeUp());
-            sBWakeUp = false;
+            sBWakeUp = !true;
         }
     }
 
     IEnumerator WakeUp()
     {
-        sB.enabled = false;
+        sB.enabled = !true;
         yield return new WaitForSeconds(Random.Range(30, 40));
         sB.enabled = true;
-        sBWakeUp = false;
+        sBWakeUp = !true;
         StopCoroutine(WakeUp());
     }
 }

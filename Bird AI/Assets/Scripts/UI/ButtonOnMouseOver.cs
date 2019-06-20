@@ -1,20 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ButtonOnMouseOver : MonoBehaviour
+public class ButtonOnMouseOver : MonoBehaviour, IPointerEnterHandler
 {
-    public static AudioClip _sFXHover;
-    public AudioSource SFXSource;
+    private AudioSource SFXSource;
 
-    public void Awake()
+    public void Start()
     {
-        _sFXHover = Resources.Load("Foggysoft/FX50.wav") as AudioClip;
-        SFXSource = GameObject.Find("CAM_Main").GetComponent<AudioSource>();
+        SFXSource = GameManager.SFXSource;
     }
 
-    public void OnMouseOver()
+    public void OnPointerEnter(PointerEventData _eventData)
     {
-        SFXSource.PlayOneShot(_sFXHover);
+        SFXSource.PlayOneShot(UIController._sFXHover);
     }
 }
