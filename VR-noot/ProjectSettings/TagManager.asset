@@ -10,6 +10,11 @@ TagManager:
   - Bird3
   - Bird4
   - Bird5
+  - Bird6
+  - Bird7
+  - Bird8
+  - Bird9
+  - Bird10
   layers:
   - Default
   - TransparentFX

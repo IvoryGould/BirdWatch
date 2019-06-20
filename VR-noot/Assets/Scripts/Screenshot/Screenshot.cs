@@ -8,13 +8,11 @@ public class Screenshot : MonoBehaviour
     public Camera cam;
 
     // materials for quads
-    public Renderer clipOne;
-    public Renderer clipTwo;
-    public Renderer clipThree;
+    public Renderer clipPhotoOne, clipPhotoTwo, clipPhotoThree, clipPhotoFour, clipPhotoFive, 
+                    clipPhotoSix, clipPhotoSeven, clipPhotoEight, clipPhotoNine, clipPhotoTen;
 
-    public Renderer albumOne;
-    public Renderer albumTwo;
-    public Renderer albumThree;
+    public Renderer extraPhotoOne, extraPhotoTwo, extraPhotoThree, extraPhotoFour, extraPhotoFive,
+                    extraPhotoSix, extraPhotoSeven, extraPhotoEight, extraPhotoNine, extraPhotoTen;
 
     // screenshot preview
     public Renderer polaroid;
@@ -35,17 +33,9 @@ public class Screenshot : MonoBehaviour
 
     private void Start()
     {
+        RenderGet();
+
         cam =  GetComponent<Camera>();
-        clipOne = clipOne.GetComponent<Renderer>();
-        clipTwo = clipTwo.GetComponent<Renderer>();
-        clipThree = clipThree.GetComponent<Renderer>();
-
-        albumOne = albumOne.GetComponent<Renderer>();
-        albumTwo = albumTwo.GetComponent<Renderer>();
-        albumThree = albumThree.GetComponent<Renderer>();
-
-        polaroid = polaroid.GetComponent<Renderer>();
-
 
         birdTaken = false;
         screenshotTaken = false;
@@ -113,17 +103,44 @@ public class Screenshot : MonoBehaviour
         switch (birdDetected)
         {
             case "SpeciesBird1":
-                clipOne.material.SetTexture("_MainTex", texture);
+                clipPhotoOne.material.SetTexture("_MainTex", texture);
                 break;
 
             case "SpeciesBird2":
-                clipTwo.material.SetTexture("_MainTex", texture);          
+                clipPhotoTwo.material.SetTexture("_MainTex", texture);          
                 break;
 
             case "SpeciesBird3":
-                clipThree.material.SetTexture("_MainTex", texture);
+                clipPhotoThree.material.SetTexture("_MainTex", texture);
                 break;
 
+            case "SpeciesBird4":
+                clipPhotoFour.material.SetTexture("_MainTex", texture);
+                break;
+
+            case "SpeciesBird5":
+                clipPhotoFive.material.SetTexture("_MainTex", texture);
+                break;
+
+            case "SpeciesBird6":
+                clipPhotoSix.material.SetTexture("_MainTex", texture);
+                break;
+
+            case "SpeciesBird7":
+                clipPhotoSeven.material.SetTexture("_MainTex", texture);
+                break;
+
+            case "SpeciesBird8":
+                clipPhotoEight.material.SetTexture("_MainTex", texture);
+                break;
+
+            case "SpeciesBird9":
+                clipPhotoNine.material.SetTexture("_MainTex", texture);
+                break;
+
+            case "SpeciesBird10":
+                clipPhotoTen.material.SetTexture("_MainTex", texture);
+                break;
             default:
                 // failsafe
                 NormalSaving();
@@ -138,20 +155,48 @@ public class Screenshot : MonoBehaviour
         switch (screenshotCount)
         {
             case 0:
-                albumOne.material.SetTexture("_MainTex", texture);
+                extraPhotoOne.material.SetTexture("_MainTex", texture);
                 break;
 
             case 1:
-                albumTwo.material.SetTexture("_MainTex", texture);
+                extraPhotoTwo.material.SetTexture("_MainTex", texture);
                 break;
 
             case 2:
-                albumThree.material.SetTexture("_MainTex", texture);
+                extraPhotoThree.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 3:
+                extraPhotoFour.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 4:
+                extraPhotoFive.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 5:
+                extraPhotoSix.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 6:
+                extraPhotoSeven.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 7:
+                extraPhotoEight.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 8:
+                extraPhotoNine.material.SetTexture("_MainTex", texture);
+                break;
+
+            case 9:
+                extraPhotoTen.material.SetTexture("_MainTex", texture);
                 break;
 
             default:
                 // failsafe
-                albumThree.material.SetTexture("_MainTex", texture);
+                extraPhotoTen.material.SetTexture("_MainTex", texture);
                 break;
         }
         PolaroidClear();
@@ -167,5 +212,34 @@ public class Screenshot : MonoBehaviour
         polaroid.material.SetTexture("_MainTex", null);
 
         birdDetected = string.Empty;
+    }
+
+    private void RenderGet()
+    {
+        // clipboard photos
+        clipPhotoOne = clipPhotoOne.GetComponent<Renderer>();
+        clipPhotoTwo = clipPhotoTwo.GetComponent<Renderer>();
+        clipPhotoThree = clipPhotoThree.GetComponent<Renderer>();
+        clipPhotoFour = clipPhotoFour.GetComponent<Renderer>();
+        clipPhotoFive = clipPhotoFive.GetComponent<Renderer>();
+        clipPhotoSix = clipPhotoSix.GetComponent<Renderer>();
+        clipPhotoSeven = clipPhotoSeven.GetComponent<Renderer>();
+        clipPhotoEight = clipPhotoEight.GetComponent<Renderer>();
+        clipPhotoNine = clipPhotoNine.GetComponent<Renderer>();
+        clipPhotoTen = clipPhotoTen.GetComponent<Renderer>();
+
+        // random photos
+        extraPhotoOne = extraPhotoOne.GetComponent<Renderer>();
+        extraPhotoTwo = extraPhotoTwo.GetComponent<Renderer>();
+        extraPhotoThree = extraPhotoThree.GetComponent<Renderer>();
+        extraPhotoFour = extraPhotoFour.GetComponent<Renderer>();
+        extraPhotoFive = extraPhotoFive.GetComponent<Renderer>();
+        extraPhotoSix = extraPhotoSix.GetComponent<Renderer>();
+        extraPhotoSeven = extraPhotoSeven.GetComponent<Renderer>();
+        extraPhotoEight = extraPhotoEight.GetComponent<Renderer>();
+        extraPhotoNine = extraPhotoNine.GetComponent<Renderer>();
+        extraPhotoTen = extraPhotoTen.GetComponent<Renderer>();
+
+        polaroid = polaroid.GetComponent<Renderer>();
     }
 }
