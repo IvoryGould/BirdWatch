@@ -40,23 +40,13 @@ public class UIController : MonoBehaviour
 
     public bool _options = !true;      // safety for slider functionality
 
-    public void StartGame()
-    {
-        MenuMain.SetActive(true);
-        MenuOptions.SetActive(!true);
-        MenuCredits.SetActive(!true);
-        MenuConfirmExit.SetActive(!true);
-        _options = !true;
-        PauseMain.SetActive(!true);
-        PauseOptions.SetActive(!true);
-        PauseConfirmExit.SetActive(!true);
-        CvsPauseMenu.enabled = !true;
-    }
+
 
     // HERE ARE THE FUNCTIONS FOR THE MAIN MENU
 
     public void Awake()
     {
+        StartGame();
         GameManager = GetComponent<GameManager>();
         _sFXEnter = Resources.Load("SFX/FX51 - Select 1") as AudioClip;
         _sFXLeave = Resources.Load("SFX/FX51 - Select 4") as AudioClip;
@@ -64,6 +54,8 @@ public class UIController : MonoBehaviour
         _sFXHover = Resources.Load("SFX/UIHover") as AudioClip;
         _sFXKeep = Resources.Load("SFX/PaperTurn") as AudioClip;
     }
+
+
 
     public void Main_Menu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
     {
@@ -161,6 +153,20 @@ public class UIController : MonoBehaviour
         SelectionReset();
     }
 
+    //
+
+    public void StartGame()
+    {
+        MenuMain.SetActive(true);
+        MenuOptions.SetActive(!true);
+        MenuCredits.SetActive(!true);
+        MenuConfirmExit.SetActive(!true);
+        _options = !true;
+        PauseMain.SetActive(!true);
+        PauseOptions.SetActive(!true);
+        PauseConfirmExit.SetActive(!true);
+        CvsPauseMenu.enabled = !true;
+    }
 
 
     // Quality of Life - unselect last option
@@ -169,5 +175,14 @@ public class UIController : MonoBehaviour
     {
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+    }
+
+    public void QuitGame()          // Cancels Editor Playtest or Closes application. :)
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = !true;
+#else
+         Application.Quit();
+#endif
     }
 }

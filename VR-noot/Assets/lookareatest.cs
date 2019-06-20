@@ -12,9 +12,19 @@ public class lookareatest : MonoBehaviour
     public Canvas zoomCanvas;
     public Image zoomOverlay;
 
+    private Canvas pauseMenu;
+
     bool zoomToggle = false;
+    bool pauseToggle = false;
 
     private Screenshot screenshot;
+
+    private void Awake()
+    {
+        
+        pauseMenu = GameObject.Find("CANVAS PauseMenu").GetComponent<Canvas>();
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +33,8 @@ public class lookareatest : MonoBehaviour
         cam = GetComponent<Camera>();
         zoomCanvas.enabled = false;
 
+        pauseMenu.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -30,6 +42,25 @@ public class lookareatest : MonoBehaviour
     {
 
         OVRInput.Update();
+
+        if (OVRInput.GetDown(OVRInput.Button.Back))
+        {
+
+            pauseToggle = !pauseToggle;
+
+        }
+
+        if (pauseToggle == true)
+        {
+
+            pauseMenu.enabled = true;
+
+        }
+        else {
+
+            pauseMenu.enabled = false;
+
+        }
 
         if (OVRInput.GetDown(OVRInput.Button.One))
             zoomToggle = !zoomToggle;
