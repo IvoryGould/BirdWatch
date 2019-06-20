@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
         UIController = GameObject.Find("MENUS Controller").GetComponent<UIController>();
         CameraController = GameObject.Find("CAMERA Controller").GetComponent<CameraController>();
         UIAnimationManager = GetComponent<UIAnimationManager>();
+        // For more randomisation
+        Random.InitState((int)Time.realtimeSinceStartup);
 
         targetRayTransform = GameObject.Find("OVRCameraRig Play").transform.Find("TrackingSpace").Find("RightHandAnchor").transform;
 

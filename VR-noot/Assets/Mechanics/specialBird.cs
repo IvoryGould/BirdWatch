@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class specialBird : MonoBehaviour
 {
+    public int nextPointLow;
+    public int nextPointHigh;
+    
+    public int spawnPointLow;
+    public int spawnPointHigh;
+
     private Vector3 point;
     private Vector3 homePoint;
     [SerializeField]
@@ -48,7 +54,7 @@ public class specialBird : MonoBehaviour
         // Send the birds to a different point
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 8));
+            yield return new WaitForSeconds(Random.Range(nextPointLow, nextPointHigh));
             int rand = Random.Range(0, target.Length);
             point = target[rand].position;
             birdPoints += 1;
@@ -63,8 +69,8 @@ public class specialBird : MonoBehaviour
         
         
         
-        yield return new WaitForSeconds(Random.Range(2, 4));
-        specialSleep.sBWakeUp = true;
+        yield return new WaitForSeconds(Random.Range(spawnPointLow, spawnPointHigh));
+        //specialSleep.sBWakeUp = true;
         birdPoints = 0;
     }
 }
