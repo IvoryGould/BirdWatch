@@ -19,7 +19,7 @@ public class UIAnimationManager : MonoBehaviour
 
     public void Awake()
     {
-        _fireCamera = false;
+        _fireCamera = !true;
 
         GameManager = GetComponent<GameManager>();
         UIController= GetComponent<UIController>();
@@ -34,7 +34,7 @@ public class UIAnimationManager : MonoBehaviour
         
     }
 
-    public void PhotoAnim()
+    public void TakePhoto()
     {
         _fireCamera = true;
         AnimatorPreviewImage.SetBool("_fireCamera", _fireCamera);
@@ -42,11 +42,9 @@ public class UIAnimationManager : MonoBehaviour
         
     }
 
-    public void ResetAnimStates()
+    public void PhotoAccept()
     {
         _fireCamera = !true;
-
-        GameManager.SFXSource.PlayOneShot(UIController._sFXEnter);
 
         AnimatorPreviewImage.SetBool("_fireCamera", _fireCamera);
         AnimatorPreviewConfirm.SetBool("_fireCamera", _fireCamera);

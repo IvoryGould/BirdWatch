@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 36279737}
   - component: {fileID: 36279736}
   - component: {fileID: 36279735}
+  - component: {fileID: 36279738}
   m_Layer: 0
   m_Name: BTN_Exit
   m_TagString: Untagged
@@ -976,6 +977,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36279733}
   m_CullTransparentMesh: 0
+--- !u!114 &36279738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36279733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1 &39799941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2885,6 +2900,7 @@ GameObject:
   - component: {fileID: 183487899}
   - component: {fileID: 183487898}
   - component: {fileID: 183487897}
+  - component: {fileID: 183487900}
   m_Layer: 0
   m_Name: BTN_No
   m_TagString: Untagged
@@ -3002,6 +3018,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183487895}
   m_CullTransparentMesh: 0
+--- !u!114 &183487900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183487895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1001 &185270281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3077,6 +3107,7 @@ GameObject:
   - component: {fileID: 193288700}
   - component: {fileID: 193288699}
   - component: {fileID: 193288698}
+  - component: {fileID: 193288701}
   m_Layer: 0
   m_Name: BTN_Back
   m_TagString: Untagged
@@ -3194,6 +3225,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193288696}
   m_CullTransparentMesh: 0
+--- !u!114 &193288701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193288696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1 &194648879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,7 +4291,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh12156
+  m_Name: pb_Mesh22878
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4981,7 +5026,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh12598
+  m_Name: pb_Mesh23468
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6570,7 +6615,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh12578
+  m_Name: pb_Mesh23448
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7402,7 +7447,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13170
+  m_Name: pb_Mesh24250
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -15606,6 +15651,7 @@ GameObject:
   - component: {fileID: 868339984}
   - component: {fileID: 868339983}
   - component: {fileID: 868339982}
+  - component: {fileID: 868339985}
   m_Layer: 0
   m_Name: BTN_Credits
   m_TagString: Untagged
@@ -15723,6 +15769,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868339980}
   m_CullTransparentMesh: 0
+--- !u!114 &868339985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868339980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1 &873461068
 GameObject:
   m_ObjectHideFlags: 0
@@ -19168,6 +19228,7 @@ GameObject:
   - component: {fileID: 1149203731}
   - component: {fileID: 1149203730}
   - component: {fileID: 1149203729}
+  - component: {fileID: 1149203732}
   m_Layer: 0
   m_Name: BTN_Yes
   m_TagString: Untagged
@@ -19285,6 +19346,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149203727}
   m_CullTransparentMesh: 0
+--- !u!114 &1149203732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149203727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1 &1149568311
 GameObject:
   m_ObjectHideFlags: 0
@@ -19452,7 +19527,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13154
+  m_Name: pb_Mesh24234
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -20913,7 +20988,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh12512
+  m_Name: pb_Mesh23374
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -21073,7 +21148,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13050
+  m_Name: pb_Mesh24100
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -21467,6 +21542,7 @@ GameObject:
   - component: {fileID: 1247219156}
   - component: {fileID: 1247219155}
   - component: {fileID: 1247219154}
+  - component: {fileID: 1247219157}
   m_Layer: 0
   m_Name: BTN_Play
   m_TagString: Untagged
@@ -21584,6 +21660,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247219152}
   m_CullTransparentMesh: 0
+--- !u!114 &1247219157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247219152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1 &1258593275
 GameObject:
   m_ObjectHideFlags: 0
@@ -30049,7 +30139,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13070
+  m_Name: pb_Mesh24120
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -30440,6 +30530,7 @@ GameObject:
   - component: {fileID: 1767698543}
   - component: {fileID: 1767698542}
   - component: {fileID: 1767698541}
+  - component: {fileID: 1767698544}
   m_Layer: 0
   m_Name: BTN_No
   m_TagString: Untagged
@@ -30557,6 +30648,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767698539}
   m_CullTransparentMesh: 0
+--- !u!114 &1767698544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767698539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1001 &1768005228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33288,7 +33393,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh12638
+  m_Name: pb_Mesh23512
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -33715,6 +33820,7 @@ GameObject:
   - component: {fileID: 1994829231}
   - component: {fileID: 1994829230}
   - component: {fileID: 1994829229}
+  - component: {fileID: 1994829232}
   m_Layer: 0
   m_Name: BTN_Options
   m_TagString: Untagged
@@ -33832,6 +33938,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994829227}
   m_CullTransparentMesh: 0
+--- !u!114 &1994829232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994829227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d68edab36abc345a7fde5788cd3a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sFXHover: {fileID: 0}
+  SFXSource: {fileID: 0}
 --- !u!1001 &2012846799
 PrefabInstance:
   m_ObjectHideFlags: 0

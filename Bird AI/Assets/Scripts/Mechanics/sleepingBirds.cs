@@ -24,9 +24,9 @@ public class sleepingBirds : MonoBehaviour
     IEnumerator WakeUp()
     {
         // Activate birds
-        rrB.enabled = false;
-        rrB1.enabled = false;
-        rrB2.enabled = false;
+        rrB.enabled = !true;
+        rrB1.enabled = !true;
+        rrB2.enabled = !true;
         yield return new WaitForSeconds(Random.Range(30, 50));
         rrB.enabled = true;
         rrB1.enabled = true;

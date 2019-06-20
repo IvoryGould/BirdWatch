@@ -8,5 +8,9 @@ SFX:
 	UI - 
 		[Asset Store - Foggysoft]
 			https://assetstore.unity.com/packages/audio/sound-fx/versatile-game-sound-effects-45503
-		[Freesound.org - satanicupsman]
+		[Camera_Polaroid: Freesound.org - satanicupsman]
 			https://freesound.org/people/satanicupsman/sounds/345906/
+		[PageTurn: Freesound.org - flag2]
+			https://freesound.org/people/flag2/sounds/63318/
+		[UI_Hover: freesound.org - GameDevC]
+			https://freesound.org/people/GameDevC/sounds/422836/

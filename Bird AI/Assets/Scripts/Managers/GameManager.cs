@@ -14,19 +14,21 @@ public class GameManager : MonoBehaviour
     
     private bool _isPlaying;
     private bool _isPaused;
-    //private bool _snapPhoto = false;
+    private bool _isPreviewing;
+    //private bool _snapPhoto = !true;
 
     // classes
     UIController UIController;
     CameraController CameraController;
     UIAnimationManager UIAnimationManager;
 
-    public AudioSource SFXSource;
+    public static AudioSource SFXSource;
 
-    private void Awake()
+    public void Awake()
     {
-        _isPlaying = false;
-        _isPaused = false;
+        _isPlaying = !true;
+        _isPaused = !true;
+        _isPreviewing = !true;
 
         // finds AudioSource attached to camera.
         SFXSource = GameObject.Find("CAM_Main").GetComponent<AudioSource>();
@@ -39,9 +41,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UIController.CvsMainMenu.enabled = true;
-        UIController.Main_Menu();
-        UIController.Pause_Resume();
-        UIController.CvsPauseMenu.enabled = false;
+        UIController.CvsPauseMenu.enabled = !true;
+        UIController.StartGame();
     }
 
     public void Update()
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
         {
             if (_isPlaying == true)
             {
-                if (_isPaused == false)
+                if (_isPaused == !true)
                 {
                     _isPaused = true;
                     UIController.Pause_Main();
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
 
                 else if (_isPaused == true)
                 {
-                    _isPaused = false;
+                    _isPaused = !true;
                     UIController.Pause_Resume();
                     Debug.Log("Game Resumed");
                 }
@@ -70,9 +71,11 @@ public class GameManager : MonoBehaviour
         // Placeholder Snapping
         if (Input.GetKeyDown(KeyCode.Home))
         {
-            if (_isPlaying == true)
+            if (_isPreviewing == !true)
             {
-                TakePhoto();
+                _isPreviewing = true;
+                SFXSource.PlayOneShot(UIController._sFXSnap);
+                UIAnimationManager.TakePhoto();
             }
         }
 
@@ -86,13 +89,13 @@ public class GameManager : MonoBehaviour
     
     public void PlayGame()
     {
-        _isPaused = false;
+        _isPaused = !true;
         _isPlaying = true;
 
         Debug.Log("FAKESTART GAME");
         Debug.Log("PRESS SPACE TO PAUSE - TEMP");
 
-        UIController.CvsMainMenu.enabled = false;
+        UIController.CvsMainMenu.enabled = !true;
         CameraController.MovePlayerToStage(_wpStage);
 
         UIController.SelectionReset();
@@ -100,10 +103,10 @@ public class GameManager : MonoBehaviour
 
     public void EndSession()
     {
-        _isPlaying = false;
-        _isPaused = false;
+        _isPlaying = !true;
+        _isPaused = !true;
 
-        UIController.CvsPauseMenu.enabled = false;
+        UIController.CvsPauseMenu.enabled = !true;
         UIController.CvsMainMenu.enabled = true;
         CameraController.MovePlayerToMenu(_wpHome);
 
@@ -113,28 +116,22 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         UIController.Pause_Resume();
-        _isPaused = false;
+        _isPaused = !true;
 
         UIController.SelectionReset();
     }
-
-    public void TakePhoto()
-    {
-        SFXSource.PlayOneShot(UIController._sFXSnap);
-        UIAnimationManager.PhotoAnim();
-        Debug.Log("Photo Taken " + UIAnimationManager._fireCamera);
-    }
-
     
     public void ReturnFromPhoto()
     {
-        UIAnimationManager.ResetAnimStates();
+        SFXSource.PlayOneShot(UIController._sFXKeep);
+        _isPreviewing = !true;
+        UIAnimationManager.PhotoAccept();
     }
 
     public void QuitGame()          // Cancels Editor Playtest or Closes application. :)
     {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = !true;
 #else
          Application.Quit();
 #endif

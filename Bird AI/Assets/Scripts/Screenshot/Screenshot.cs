@@ -46,8 +46,8 @@ public class Screenshot : MonoBehaviour
         rendThree = rendThree.GetComponent<Renderer>();
         polaroid = polaroid.GetComponent<Renderer>();
 
-        screenshotTaken = false;
-        onPolaroid = false;
+        screenshotTaken = !true;
+        onPolaroid = !true;
     }
 
     private void Update()
@@ -80,7 +80,7 @@ public class Screenshot : MonoBehaviour
                     break;
             }
 
-            screenshotTaken = false;
+            screenshotTaken = !true;
         }
 
 
@@ -93,7 +93,7 @@ public class Screenshot : MonoBehaviour
 
             // displays screenshot onto a polaroid
             polaroid.material.SetTexture("_MainTex", texture);
-            onPolaroid = false;
+            onPolaroid = !true;
         }
     }
 

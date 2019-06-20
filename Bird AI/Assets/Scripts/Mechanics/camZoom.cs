@@ -8,7 +8,7 @@ public class camZoom : MonoBehaviour
     public Transform Player;
     public Camera FirstPersonCam, ThirdPersonCam;
     public KeyCode TKey;
-    public bool camSwitch = false;
+    public bool camSwitch = !true;
 
     void Update()
     {
