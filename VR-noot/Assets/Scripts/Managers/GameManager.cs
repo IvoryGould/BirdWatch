@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         _isPaused = !true;
         _isPreviewing = !true;
 
-        SFXSource = GameObject.Find("CAM_Main").GetComponent<AudioSource>();
+        //SFXSource = GameObject.Find("CAM_Main").GetComponent<AudioSource>();
         //SFXSource = GameObject.Find("OVRCameraRig Menu").GetComponent<AudioSource>();
 
         UIController = GameObject.Find("MENUS Controller").GetComponent<UIController>();
