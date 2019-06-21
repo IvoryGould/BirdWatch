@@ -59,7 +59,7 @@ public class UIController : MonoBehaviour
 
     public void Main_Menu()           // Switch menus back to Main Menu + failsafe for loose UI panels. 
     {
-        GameManager.SFXSource.PlayOneShot(_sFXLeave);
+        //GameManager.SFXSource.PlayOneShot(_sFXLeave);
 
         MenuMain.SetActive(true);
         MenuOptions.SetActive(!true);
@@ -72,7 +72,7 @@ public class UIController : MonoBehaviour
 
     public void Main_Options()        // Switch to Options, Closes Main Menu Panel.
     {
-        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+        //GameManager.SFXSource.PlayOneShot(_sFXEnter);
         MenuMain.SetActive(!true);
         MenuOptions.SetActive(true);
         _options = true;
@@ -82,7 +82,7 @@ public class UIController : MonoBehaviour
 
     public void Main_Credits()            // Switch to Credits, Closes Main Menu Panel.
     {
-        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+        //GameManager.SFXSource.PlayOneShot(_sFXEnter);
         MenuMain.SetActive(!true);
         MenuCredits.SetActive(true);
 
@@ -91,7 +91,7 @@ public class UIController : MonoBehaviour
 
     public void Main_ConfirmExit()        // Opens Exit Confirm Panel.
     {
-        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+        //GameManager.SFXSource.PlayOneShot(_sFXEnter);
         MenuConfirmExit.SetActive(true);
 
         SelectionReset();
@@ -101,7 +101,7 @@ public class UIController : MonoBehaviour
 
     public void Pause_Main()
     {
-        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+        //GameManager.SFXSource.PlayOneShot(_sFXEnter);
         CvsPauseMenu.enabled = true;
         PauseMain.SetActive(true);
         PauseOptions.SetActive(!true);
@@ -113,7 +113,7 @@ public class UIController : MonoBehaviour
 
     public void Pause_Resume()
     {
-        GameManager.SFXSource.PlayOneShot(_sFXLeave);
+        //GameManager.SFXSource.PlayOneShot(_sFXLeave);
 
         PauseMain.SetActive(!true);
         PauseOptions.SetActive(!true);
@@ -125,7 +125,7 @@ public class UIController : MonoBehaviour
 
     public void Pause_Options()
     {
-        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+        //GameManager.SFXSource.PlayOneShot(_sFXEnter);
 
         PauseMain.SetActive(!true);
         PauseOptions.SetActive(true);
@@ -136,7 +136,7 @@ public class UIController : MonoBehaviour
 
     public void Pause_ConfirmExit()
     {
-        GameManager.SFXSource.PlayOneShot(_sFXEnter);
+        //GameManager.SFXSource.PlayOneShot(_sFXEnter);
 
         PauseConfirmExit.SetActive(true);
 
@@ -145,7 +145,7 @@ public class UIController : MonoBehaviour
 
     public void Pause_ExitToMain()
     {
-        GameManager.SFXSource.PlayOneShot(_sFXLeave);
+        //GameManager.SFXSource.PlayOneShot(_sFXLeave);
 
         CvsPauseMenu.enabled = !true;
         CvsMainMenu.enabled = true;
