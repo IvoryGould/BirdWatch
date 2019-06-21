@@ -37,6 +37,7 @@ public class UIController : MonoBehaviour
     public static AudioClip _sFXKeep;
 
     GameManager GameManager;
+    CameraController cameraController;
 
     public bool _options = !true;      // safety for slider functionality
 
@@ -53,6 +54,8 @@ public class UIController : MonoBehaviour
         _sFXSnap = Resources.Load("SFX/Camera_Polaroid") as AudioClip;
         _sFXHover = Resources.Load("SFX/UIHover") as AudioClip;
         _sFXKeep = Resources.Load("SFX/PaperTurn") as AudioClip;
+        cameraController = GameObject.Find("CAMERA Controller").GetComponent<CameraController>();
+
     }
 
 
@@ -149,6 +152,9 @@ public class UIController : MonoBehaviour
 
         CvsPauseMenu.enabled = !true;
         CvsMainMenu.enabled = true;
+
+        cameraController.playCamera.SetActive(false);
+        cameraController.menuCamera.SetActive(true);
 
         SelectionReset();
     }

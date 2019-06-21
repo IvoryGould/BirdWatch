@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public Transform targetRayTransform;
     public static AudioSource SFXSource;
 
+    private OVRGazePointer oVRGazePointer;
+
     void Awake()
     {
         _isPlaying = false;
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
         // For more randomisation
         Random.InitState((int)Time.realtimeSinceStartup);
 
+        oVRGazePointer = GameObject.Find("OVR Gaze Pointer").GetComponent<OVRGazePointer>();
+
         targetRayTransform = GameObject.Find("OVRCameraRig Play").transform.Find("TrackingSpace").Find("RightHandAnchor").transform;
 
     }
@@ -51,9 +55,22 @@ public class GameManager : MonoBehaviour
     public void PlayGame()
     {
         UIController.CvsMainMenu.enabled = !true;
-        GameObject.Find("EventSystem").GetComponent<OVRInputModule>().rayTransform = targetRayTransform;
+        //GameObject.Find("EventSystem").GetComponent<OVRInputModule>().rayTransform = targetRayTransform;
+        //oVRGazePointer.rayTransform = targetRayTransform;
         CameraController.MovePlayerToStage();
 
         UIController.SelectionReset();
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            PlayGame();
+
+        }
+
     }
 }

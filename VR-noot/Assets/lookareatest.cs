@@ -15,6 +15,7 @@ public class lookareatest : MonoBehaviour
     //private Canvas pauseMenu;
 
     private UIController uIController;
+    private GameManager gameManager;
 
     bool zoomToggle = false;
     bool pauseToggle = false;
@@ -26,6 +27,7 @@ public class lookareatest : MonoBehaviour
         
         //pauseMenu = GameObject.Find("CANVAS PauseMenu").GetComponent<Canvas>();
         uIController = GameObject.Find("MENUS Controller").GetComponent<UIController>();
+        gameManager = GameObject.Find("GAME MANAGEMENT 2").GetComponent<GameManager>();
 
     }
 
@@ -49,7 +51,7 @@ public class lookareatest : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.Back))
         {
 
-            pauseToggle = !pauseToggle;
+            uIController.Pause_ExitToMain();
 
         }
 
@@ -70,7 +72,7 @@ public class lookareatest : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.One))
             zoomToggle = !zoomToggle;
 
-        if (zoomToggle == true)
+        if (zoomToggle == true && screenshot.screenshotTaken == false)
         {
 
             zoomCanvas.enabled = true;
@@ -105,6 +107,5 @@ public class lookareatest : MonoBehaviour
             zoomCanvas.enabled = false;
 
         }
-
     }
 }

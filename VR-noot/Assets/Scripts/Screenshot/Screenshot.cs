@@ -24,7 +24,7 @@ public class Screenshot : MonoBehaviour
     private int screenshotCount = 0;
     private readonly int screenshotDelay = 2;
 
-    private bool screenshotTaken;
+    public bool screenshotTaken;
     private bool birdTaken;
     private bool onPolaroid;
 
@@ -62,7 +62,7 @@ public class Screenshot : MonoBehaviour
             }
         }
 
-        if (OVRInput.GetDown(OVRInput.Button.Two) && screenshotTaken)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && screenshotTaken)
         {
             switch(birdTaken)
             {
@@ -76,7 +76,7 @@ public class Screenshot : MonoBehaviour
                     break;
             }
         }
-        else if (Input.GetKeyDown("n") && screenshotTaken)
+        else if (OVRInput.GetDown(OVRInput.Button.One) && screenshotTaken)
         {
             // deletes screenshot
             PolaroidClear();
