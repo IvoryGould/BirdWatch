@@ -12,7 +12,9 @@ public class lookareatest : MonoBehaviour
     public Canvas zoomCanvas;
     public Image zoomOverlay;
 
-    private Canvas pauseMenu;
+    //private Canvas pauseMenu;
+
+    private UIController uIController;
 
     bool zoomToggle = false;
     bool pauseToggle = false;
@@ -22,7 +24,8 @@ public class lookareatest : MonoBehaviour
     private void Awake()
     {
         
-        pauseMenu = GameObject.Find("CANVAS PauseMenu").GetComponent<Canvas>();
+        //pauseMenu = GameObject.Find("CANVAS PauseMenu").GetComponent<Canvas>();
+        uIController = GameObject.Find("MENUS Controller").GetComponent<UIController>();
 
     }
 
@@ -33,7 +36,7 @@ public class lookareatest : MonoBehaviour
         cam = GetComponent<Camera>();
         zoomCanvas.enabled = false;
 
-        pauseMenu.enabled = false;
+        //pauseMenu.enabled = false;
 
     }
 
@@ -53,12 +56,14 @@ public class lookareatest : MonoBehaviour
         if (pauseToggle == true)
         {
 
-            pauseMenu.enabled = true;
+            uIController.Pause_Main();
+            //pauseMenu.enabled = true;
 
         }
         else {
 
-            pauseMenu.enabled = false;
+            uIController.Pause_Resume();
+            //pauseMenu.enabled = false;
 
         }
 
